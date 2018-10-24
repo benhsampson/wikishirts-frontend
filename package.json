@@ -41,7 +41,6 @@
     "eject": "react-scripts eject",
     "postbuild": "react-snap"
   },
-  "proxy": "https://guarded-headland-87063.herokuapp.com/",
   "browserslist": [
     ">0.2%",
     "not dead",
