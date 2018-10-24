@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import mixpanel from 'mixpanel-browser';
 import { injectGlobal } from 'styled-components';
 
 import dotenv from 'dotenv';
@@ -11,6 +12,8 @@ import base from './constants/base';
 import registerServiceWorker from './registerServiceWorker';
 
 dotenv.config();
+
+mixpanel.init(mixpanelToken);
 
 injectGlobal`
   ${base};
