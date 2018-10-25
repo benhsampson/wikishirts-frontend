@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { StripeProvider } from 'react-stripe-elements';
+import mixpanel from 'mixpanel-browser';
 
 import { store, persistor } from '../store';
 
@@ -18,6 +19,8 @@ import NotFound from './pages/404';
 
 import Context from './components/Context';
 
+mixpanel.init(mixpanelToken);
+
 class App extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -29,7 +32,7 @@ class App extends React.Component {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             {/* TODO: Replace this with environment variable */}
-            <StripeProvider stripe={stripePublicKey}>
+            <StripeProvider apiKey={stripePublicKey}>
               <Router>
                 <main>
                   <Switch>
